@@ -13,6 +13,7 @@ function App() {
   // UI state
   const [activeTab, setActiveTab] = useState('rich') // 'rich' or 'html'
   const [toasts, setToasts] = useState([]) // Array of notification toasts
+  const [isPreviewDark, setIsPreviewDark] = useState(false) // Live email client preview dark mode
   const signatureRef = useRef(null)
 
   // Clean phone link helper
@@ -36,7 +37,7 @@ function App() {
         <td style="width: 90px; text-align: center; vertical-align: top; padding-top: 6px; border: none;">
           <img src="https://lh3.googleusercontent.com/d/${imageID}" width="65" height="65" style="width: 65px; height: 65px; border-radius: 50%; border: 1.5px solid #888; display: block; margin: 0 auto 6px;" />
           <img src="https://www.netlabindia.com/wp-content/uploads/2019/12/NTIPL-ISO-Logo-150px.png" alt="Network Techlab" width="80" style="display: block; margin: 0 auto 4px; border: none;" />
-          <img src="https://lh3.googleusercontent.com/d/10Qdrb46fYThBRAB4zbfc_lG7fCpbdgJu" width="75" height="40" style="display: block; margin: 0 auto; border: none;" />
+          <img src="https://lh3.googleusercontent.com/d/1_3p5cBLsvHoGP6Jqy46teM8f9Zef4lKy" width="75" height="40" style="display: block; margin: 0 auto; border: none;" />
         </td>
         <td style="width: 2px; background: #3f6fc7; border: none;"></td>
         <td style="padding-left: 12px; vertical-align: top; padding-top: 6px; border: none;">
@@ -328,15 +329,48 @@ function App() {
 
         {/* Right Panel: Simulated Email Client Preview */}
         <section className="glass-panel">
-          <h2 className="panel-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 16v-4M12 8h.01"/>
-            </svg>
-            Live Email Client Preview
+          <h2 className="panel-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4M12 8h.01"/>
+              </svg>
+              Live Email Client Preview
+            </div>
+            
+            <div className="preview-toggle-group">
+              <button 
+                className={`preview-toggle-btn ${!isPreviewDark ? 'active' : ''}`}
+                onClick={() => setIsPreviewDark(false)}
+                title="Light Mode Preview"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <span>Light</span>
+              </button>
+              <button 
+                className={`preview-toggle-btn ${isPreviewDark ? 'active' : ''}`}
+                onClick={() => setIsPreviewDark(true)}
+                title="Dark Mode Preview"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <span>Dark</span>
+              </button>
+            </div>
           </h2>
 
-          <div className="preview-envelope">
+          <div className={`preview-envelope ${isPreviewDark ? 'dark-mode' : ''}`}>
             {/* Fake Email client chrome */}
             <div className="envelope-header">
               <div className="envelope-row">

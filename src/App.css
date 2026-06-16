@@ -437,3 +437,95 @@
   color: var(--primary);
   border-color: rgba(59, 130, 246, 0.3);
 }
+
+/* Premium Preview Mode Toggle Switch */
+.preview-toggle-group {
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 2px;
+}
+
+.preview-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+}
+
+.preview-toggle-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.preview-toggle-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.preview-toggle-btn.active svg {
+  color: white;
+}
+
+/* Dark Mode Preview Client Frame */
+.preview-envelope.dark-mode {
+  background: #0f172a;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+.preview-envelope.dark-mode .envelope-header {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+
+.preview-envelope.dark-mode .envelope-row {
+  color: #94a3b8;
+}
+
+.preview-envelope.dark-mode .envelope-val {
+  color: #f1f5f9;
+}
+
+.preview-envelope.dark-mode .envelope-body {
+  background: #0f172a;
+}
+
+.preview-envelope.dark-mode .email-content-mock {
+  color: #94a3b8;
+  border-bottom-color: #334155;
+}
+
+/* Dark Mode Signature Renderer Inline Overrides */
+.preview-envelope.dark-mode #signature-render-area div[style*="background: #ffffff"] {
+  background: #0f172a !important; /* matches dark mode envelope-body */
+}
+
+.preview-envelope.dark-mode #signature-render-area div[style*="color: #002a78"] {
+  color: #60a5fa !important; /* brand blue -> bright high-contrast blue */
+}
+
+.preview-envelope.dark-mode #signature-render-area div[style*="color: #000"] {
+  color: #f1f5f9 !important; /* black -> off-white */
+}
+
+.preview-envelope.dark-mode #signature-render-area td[style*="color: #002a78"] {
+  color: #60a5fa !important; /* brand blue label -> bright blue */
+}
+
+.preview-envelope.dark-mode #signature-render-area a[style*="color: #000"] {
+  color: #e2e8f0 !important; /* black link -> light grey */
+}
+
+.preview-envelope.dark-mode #signature-render-area a[style*="color: #1b64c6"] {
+  color: #93c5fd !important; /* dark blue link -> light blue */
+}
