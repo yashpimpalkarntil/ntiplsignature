@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   // Signature Fields State - Defaults to the user's exact input details
-  const [name, setName] = useState('Ashish Sharma')
+  const [name, setName] = useState('Ash Doe')
   const [designation, setDesignation] = useState('Assistant Manager Marketing')
   const [email, setEmail] = useState('yourmail@netlabindia.com')
   const [phone, setPhone] = useState('+91 83193 26163')
@@ -241,17 +241,6 @@ function App() {
             </div>
 
             <div className="form-group">
-              <label className="form-label">Website Domain</label>
-              <input 
-                type="text" 
-                value={website} 
-                onChange={(e) => setWebsite(e.target.value)} 
-                className="form-input"
-                placeholder="Enter Website Url"
-              />
-            </div>
-
-            <div className="form-group">
               <label className="form-label">Profile Image ID (Google Drive)</label>
               <input 
                 type="text" 
@@ -271,7 +260,7 @@ function App() {
               </svg>
               Copy Signature (Rich Text)
             </button>
-            <button className="btn btn-secondary" onClick={handleCopyHtmlCode}>
+            {/* <button className="btn btn-secondary" onClick={handleCopyHtmlCode}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polyline points="16 18 22 12 16 6"/>
                 <polyline points="8 6 2 12 8 18"/>
@@ -283,7 +272,7 @@ function App() {
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
               </svg>
               Download HTML File
-            </button>
+            </button> */}
             <button className="btn btn-secondary" onClick={handleReset} style={{ borderColor: 'rgba(239, 68, 68, 0.2)', color: '#ef4444' }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
@@ -302,12 +291,12 @@ function App() {
               >
                 Copy Guide
               </button>
-              <button 
+              {/* <button 
                 className={`tab-btn ${activeTab === 'html' ? 'active' : ''}`}
                 onClick={() => setActiveTab('html')}
               >
                 Raw Source Code
-              </button>
+              </button> */}
             </div>
 
             {activeTab === 'rich' ? (
