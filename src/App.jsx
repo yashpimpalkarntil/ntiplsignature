@@ -81,10 +81,12 @@ function App() {
   // 1. Copy formatted rich-text directly (Best for copy pasting directly into Gmail/Outlook settings)
   const handleCopyRichText = async () => {
     try {
-      const htmlBlob = new Blob([signatureHtml], { type: 'text/html' })
+      // Collapse formatting whitespaces and newlines between HTML tags to prevent gaps in email clients
+      const cleanSignatureHtml = signatureHtml.replace(/>\s+</g, '><').trim()
+      const htmlBlob = new Blob([cleanSignatureHtml], { type: 'text/html' })
       // Use helper element to get clean plain text representation
       const tempDiv = document.createElement('div')
-      tempDiv.innerHTML = signatureHtml
+      tempDiv.innerHTML = cleanSignatureHtml
       const plainText = tempDiv.innerText || tempDiv.textContent || ''
       const textBlob = new Blob([plainText], { type: 'text/plain' })
 
@@ -360,7 +362,7 @@ function App() {
                 <div 
                   ref={signatureRef}
                   id="signature-render-area"
-                  dangerouslySetInnerHTML={{ __html: signatureHtml }} 
+                  dangerouslySetInnerHTML={{ __html: signatureHtml.replace(/>\s+</g, '><').trim() }} 
                 />
               </div>
             </div>
