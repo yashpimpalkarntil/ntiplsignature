@@ -208,6 +208,7 @@ function App() {
                 onChange={(e) => setName(e.target.value)} 
                 className="form-input" 
                 placeholder="Enter Full Name"
+                maxLength={200}
               />
             </div>
             
@@ -219,6 +220,7 @@ function App() {
                 onChange={(e) => setDesignation(e.target.value)} 
                 className="form-input"
                 placeholder="Enter Job Title"
+                maxLength={200}
               />
             </div>
 
@@ -230,6 +232,7 @@ function App() {
                 onChange={(e) => setEmail(e.target.value)} 
                 className="form-input"
                 placeholder="Enter Email"
+                maxLength={200}
               />
             </div>
 
@@ -241,6 +244,7 @@ function App() {
                 onChange={(e) => setPhone(e.target.value)} 
                 className="form-input"
                 placeholder="Enter Phone Number"
+                maxLength={200}
               />
             </div>
 
@@ -249,9 +253,10 @@ function App() {
               <input 
                 type="text" 
                 value={imageID} 
-                onChange={(e) => setImageID(extractGoogleDriveId(e.target.value))} 
+                onChange={(e) => setImageID(extractGoogleDriveId(e.target.value).slice(0, 200))} 
                 className="form-input"
                 placeholder="Paste Google Drive URL or ID"
+                maxLength={200}
               />
             </div>
           </div>
