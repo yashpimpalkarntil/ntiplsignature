@@ -80,7 +80,7 @@ function App() {
     }, 3000)
   }
 
-  // 1. Copy formatted rich-text directly (Best for copy pasting directly into Gmail/Outlook settings)
+  // 1. Copy formatted rich-text directly (Best for copy pasting directly into Zimbra/Outlook settings)
   const handleCopyRichText = async () => {
     try {
       // Collapse formatting whitespaces and newlines between HTML tags to prevent gaps in email clients
@@ -319,7 +319,7 @@ function App() {
                   How to use this Signature:
                 </h4>
                 <ul className="instructions-list">
-                  <li><strong>Gmail:</strong> Click the <em>Copy Signature (Rich Text)</em> button, go to Gmail settings &gt; General &gt; Signature, and paste (Ctrl+V) directly into the text box.</li>
+                  <li><strong>Zimbra:</strong> Click the <em>Copy Signature (Rich Text)</em> button, go to Zimbra settings &gt; Preferences &gt; Signatures, and paste (Ctrl+V) directly into the text box.</li>
                   <li><strong>Outlook / Office 365:</strong> Click <em>Copy Signature (Rich Text)</em>, open Outlook Signature settings, and paste (Ctrl+V) directly.</li>
                   {/* <li><strong>Custom HTML:</strong> Click <em>Copy HTML Code</em> to copy raw inline styled HTML code for apps accepting manual HTML injection.</li> */}
                 </ul>
