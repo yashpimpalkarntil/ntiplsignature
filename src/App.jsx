@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react'
 import './App.css'
 import { getPhoneLink, getWebsiteLink, extractGoogleDriveId } from './utils/signatureUtils'
+// import SignatureGuide from './components/SignatureGuide'
+import GuideDownload from './components/GuideDownload'
 
 function App() {
   // Signature Fields State - Defaults to the user's exact input details
@@ -188,7 +190,7 @@ function App() {
           Generate, preview, and copy pixel-perfect corporate email signatures conforming exactly to Netlab guidelines.
         </p>
       </header>
-
+           <GuideDownload />
       {/* Main Workspace Layout */}
       <main className="app-workspace">
         
@@ -437,6 +439,9 @@ function App() {
           </div>
         </section>
       </main>
+
+      {/* <SignatureGuide /> */}
+
 
       {/* Toast Alert Popups */}
       <div className="toast-container">
