@@ -9,7 +9,7 @@ function App() {
   const [email, setEmail] = useState('yourmail@netlabindia.com')
   const [phone, setPhone] = useState('+91 83193 26163')
   const [website, setWebsite] = useState('www.netlabindia.com')
-  const [imageID, setImageID] = useState('1pr8oe_h6chG-SEog5YBKXAPm6wGAsaht')
+  const [imageID, setImageID] = useState('')
 
   // UI state
   const [activeTab, setActiveTab] = useState('rich') // 'rich' or 'html'
@@ -17,26 +17,34 @@ function App() {
   const [isPreviewDark, setIsPreviewDark] = useState(false) // Live email client preview dark mode
   const signatureRef = useRef(null)
 
-  // Clean phone link helper
-  const getPhoneLink = (phoneStr) => {
-    return 'tel:' + phoneStr.replace(/[^0-9+]/g, '')
-  }
-
-  // Clean website link helper
-  const getWebsiteLink = (webStr) => {
-    if (!/^https?:\/\//i.test(webStr)) {
-      return 'https://' + webStr
+  const getProfileImageSrc = () => {
+    if (imageID && imageID.trim()) {
+      return `https://lh3.googleusercontent.com/d/${imageID}`
     }
-    return webStr
+    const baseDir = window.location.pathname.endsWith('/') 
+      ? window.location.pathname 
+      : window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1)
+    return `${window.location.origin}${baseDir}download.jpeg`
   }
 
+   // Clean phone link helper
+  // const getPhoneLink = (phoneStr) => {
+  //   return 'tel:' + phoneStr.replace(/[^0-9+]/g, '')
+  // }
+
+  // // Clean website link helper
+  // const getWebsiteLink = (webStr) => {
+  //   if (!/^https?:\/\//i.test(webStr)) {
+  //     return 'https://' + webStr
+  //   }
+  //   return webStr
   // Generate the exact HTML string requested by the user
   const signatureHtml = `<div style="max-width: 400px; font-family: Arial, Helvetica, sans-serif; background: #ffffff; padding: 8px;">
   <table border="0" cellpadding="0" cellspacing="0" width="400" style="border-collapse: collapse; width: 400px; border: none;">
     <tbody>
       <tr>
         <td style="width: 90px; text-align: center; vertical-align: top; padding-top: 6px; border: none;">
-          <img src="https://lh3.googleusercontent.com/d/${imageID}" width="65" height="65" style="width: 65px; height: 65px; border-radius: 50%; border: 1.5px solid #888; display: block; margin: 0 auto 6px;" />
+          <img src="${getProfileImageSrc()}" width="65" height="65" style="width: 65px; height: 65px; border-radius: 50%; border: 1.5px solid #888; display: block; margin: 0 auto 6px;" />
           <img src="https://www.netlabindia.com/wp-content/uploads/2019/12/NTIPL-ISO-Logo-150px.png" alt="Network Techlab" width="80" style="display: block; margin: 0 auto 4px; border: none;" />
           <img src="https://lh3.googleusercontent.com/d/1_3p5cBLsvHoGP6Jqy46teM8f9Zef4lKy" width="75" height="40" style="display: block; margin: 0 auto; border: none;" />
         </td>
