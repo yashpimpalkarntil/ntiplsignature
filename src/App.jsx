@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import './App.css'
+import { getPhoneLink, getWebsiteLink, extractGoogleDriveId } from './utils/signatureUtils'
 
 function App() {
   // Signature Fields State - Defaults to the user's exact input details
@@ -141,20 +142,20 @@ function App() {
   }
 
   // 3. Download HTML file directly
-  const handleDownloadHtml = () => {
-    try {
-      const element = document.createElement('a')
-      const file = new Blob([signatureHtml], { type: 'text/html' })
-      element.href = URL.createObjectURL(file)
-      element.download = `${name.replace(/\s+/g, '_')}_email_signature.html`
-      document.body.appendChild(element)
-      element.click()
-      document.body.removeChild(element)
-      addToast('HTML signature file downloaded!')
-    } catch (err) {
-      addToast('Failed to download HTML file.', 'error')
-    }
-  }
+  // const handleDownloadHtml = () => {
+  //   try {
+  //     const element = document.createElement('a')
+  //     const file = new Blob([signatureHtml], { type: 'text/html' })
+  //     element.href = URL.createObjectURL(file)
+  //     element.download = `${name.replace(/\s+/g, '_')}_email_signature.html`
+  //     document.body.appendChild(element)
+  //     element.click()
+  //     document.body.removeChild(element)
+  //     addToast('HTML signature file downloaded!')
+  //   } catch {
+  //     addToast('Failed to download HTML file.', 'error')
+  //   }
+  // }
 
   // Reset fields to original Ashish Sharma values
   const handleReset = () => {
@@ -243,14 +244,14 @@ function App() {
               />
             </div>
 
-            <div className="form-group">
-              <label className="form-label">Profile Image ID (Google Drive)</label>
+            <div className="form-group form-full-width">
+              <label className="form-label">Profile Image ID (Google Drive URL/ID)</label>
               <input 
                 type="text" 
                 value={imageID} 
-                onChange={(e) => setImageID(e.target.value)} 
+                onChange={(e) => setImageID(extractGoogleDriveId(e.target.value))} 
                 className="form-input"
-                placeholder="Enter Google Drive Image ID"
+                placeholder="Paste Google Drive URL or ID"
               />
             </div>
           </div>
