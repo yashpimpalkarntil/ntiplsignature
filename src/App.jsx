@@ -7,7 +7,7 @@ function App() {
   const [name, setName] = useState('Ash Doe')
   const [designation, setDesignation] = useState('Assistant Manager Marketing')
   const [email, setEmail] = useState('yourmail@netlabindia.com')
-  const [phone, setPhone] = useState('+91 83193 26163')
+  const [phone, setPhone] = useState('+91 99999 99999')
   const [website, setWebsite] = useState('www.netlabindia.com')
   const [imageID, setImageID] = useState('')
 
@@ -167,12 +167,12 @@ function App() {
 
   // Reset fields to original Ashish Sharma values
   const handleReset = () => {
-    setName('Ashish Sharma')
+    setName('Ash Doe')
     setDesignation('Assistant Manager Marketing')
     setEmail('yourmail@netlabindia.com')
-    setPhone('+91 83193 26163')
+    setPhone('+91 99999 99999')
     setWebsite('www.netlabindia.com')
-    setImageID('1pr8oe_h6chG-SEog5YBKXAPm6wGAsaht')
+    setImageID('')
     addToast('Reset to original values')
   }
 
