@@ -32,7 +32,7 @@ function App() {
 
   // Generate the exact HTML string requested by the user
   const signatureHtml = `<div style="max-width: 400px; font-family: Arial, Helvetica, sans-serif; background: #ffffff; padding: 8px;">
-  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 100%; border: none;">
+  <table border="0" cellpadding="0" cellspacing="0" width="400" style="border-collapse: collapse; width: 400px; border: none;">
     <tbody>
       <tr>
         <td style="width: 90px; text-align: center; vertical-align: top; padding-top: 6px; border: none;">
@@ -44,7 +44,7 @@ function App() {
         <td style="padding-left: 12px; vertical-align: top; padding-top: 6px; border: none;">
           <div style="font-size: 22px; font-weight: bold; color: #002a78; line-height: 1.1;">${name}</div>
           <div style="font-size: 13px; font-weight: 600; color: #000; margin-top: 5px;">${designation}</div>
-          <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 10px 0; border: none;">
+          <table border="0" cellpadding="0" cellspacing="0" width="250" style="width: 250px; margin: 10px 0; border: none;">
             <tbody><tr><td style="height: 2px; background: #4f7fd1; font-size: 0; line-height: 0; border: none;">&nbsp;</td></tr></tbody>
           </table>
           <table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px; border: none;">
